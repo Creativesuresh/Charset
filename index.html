@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+html, body{
+    border: 0;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;outline: 0;padding: 0;vertical-align: baseline;
+}
+
+h1{
+    font-size: 32px;
+    margin: 0 0 15px;
+}
+
+html {
+    -webkit-text-size-adjust: none;
+}
+:focus {
+    outline: 0;
+}
+
+body {
+    color: #000; 
+    background: url(body_bg.png) no-repeat;
+    word-wrap: break-word; 
+    font-size: 16px; 
+    line-height: 1.4; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+    overflow-x: hidden; 
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+input, textarea {
+    -webkit-border-radius: 0px;
+}
+
+::placeholder {
+  color: #000;
+  opacity: 1; /* Firefox */
+}
+
+.container{
+    max-width: 1000px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.inner__block{
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 20% auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff85;
+    padding: 35px 30px;
+}
+
+.inner__block textarea {
+    max-width: 600px;
+    width: 100%;
+    height: 200px;
+    border-radius: 5px;
+    border: 1px solid #eaeaeac9;
+    padding: 20px;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.inner__block p {
+    font-size: 15px;
+    margin: 15px 0 0;
+    display: flex;
+    width: 100%;
+    max-width: 635px;
+    font-family: sans-serif;
+}
+
+.inner__block p span{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 5px;
+    
+}
+
+
+
+</style>
+
+<body>
+    <div class="container">
+        <div class="inner__block">
+            <h1>Character Limit set into 0 to 150</h1>
+            <textarea placeholder="Enter the Text" id="textArea" onkeyup="charset()" ></textarea>
+            <p><span id="charLimit">0 </span>Characters</p>
+        </div>
+        
+    </div>
+
+    <script>
+        var mytext = document.getElementById("textArea")
+        var wordCount = document.getElementById("charLimit")
+
+        mytext.addEventListener("keyup", function(){
+            var Newvariable = mytext.value.split("")
+            wordCount.innerHTML = Newvariable.length
+            if(Newvariable.length> 150){
+                mytext.value = mytext.value.substring(0, 150)
+                wordCount.innerHTML=150
+            }
+        })
+
+    </script>
+
+
+    
+</body>
+</html>
